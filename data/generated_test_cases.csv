@@ -1,0 +1,61 @@
+case_id,paragraph,has_optimistic_claim,expected_evidence_level,expected_risk,dataset_type
+G001,Management expects the transaction to unlock value and create meaningful synergies across the combined business.,yes,weak,high,generic_synergy
+G002,The strategic combination is expected to strengthen positioning and support long-term growth opportunities.,yes,weak,high,generic_synergy
+G003,The acquisition should enhance shareholder value through broad strategic benefits and scale advantages.,yes,weak,high,generic_synergy
+G004,"Executives believe the deal will create a platform for growth, although no supporting metrics were disclosed.",yes,weak,high,generic_synergy
+G005,The company expects significant benefits from the combination but did not provide measurable assumptions.,yes,weak,high,generic_synergy
+G006,The transaction is expected to deliver $35 million of annual cost savings within 18 months through procurement integration.,yes,strong,low,cost_savings
+G007,Management expects approximately $60 million in savings within 24 months from supply chain consolidation.,yes,strong,low,cost_savings
+G008,The deal is projected to generate $20 million in annual savings within 12 months through facility consolidation.,yes,strong,low,cost_savings
+G009,The company expects $45 million of cost synergies over 24 months supported by shared services integration.,yes,strong,low,cost_savings
+G010,Executives forecast annual savings of $28 million within 18 months from combining distribution networks.,yes,strong,low,cost_savings
+G011,The acquisition is expected to expand the company into new healthcare regions in the Midwest and Southeast.,yes,strong,medium,market_expansion
+G012,"Management believes the transaction opens growth opportunities in adjacent markets, although no regional plan was provided.",yes,weak,high,market_expansion
+G013,The combination adds distribution channels in three western regions and broadens the customer base.,yes,strong,medium,market_expansion
+G014,"The deal should support market expansion over time, but management did not identify specific customer groups.",yes,weak,high,market_expansion
+G015,The target adds a presence in two European regions and extends the buyer's sales network.,yes,strong,medium,market_expansion
+G016,Management plans to consolidate two manufacturing facilities and integrate procurement teams to improve operational efficiency.,yes,strong,medium,operational_efficiency
+G017,The company expects operational improvements from the acquisition but has not finalized the integration plan.,yes,weak,high,operational_efficiency
+G018,Executives anticipate efficiency gains from aligning warehouse operations and combining support functions.,yes,strong,medium,operational_efficiency
+G019,"The filing states that the acquisition should improve operations, although no implementation steps were described.",yes,weak,high,operational_efficiency
+G020,The buyer expects better operating margins by merging logistics processes over the next 18 months.,yes,strong,low,operational_efficiency
+G021,The acquired business contributed $140 million of revenue last year and is expected to expand the enterprise software segment.,yes,strong,low,revenue_contribution
+G022,Management said the target adds $85 million in annual revenue and supports expansion in the diagnostics segment.,yes,strong,low,revenue_contribution
+G023,The company expects the target's $110 million revenue base to strengthen its industrial automation segment.,yes,strong,low,revenue_contribution
+G024,The target contributed $95 million in revenue and gives the acquirer a larger customer base in specialty retail.,yes,strong,low,revenue_contribution
+G025,Executives highlighted $70 million of revenue contribution from the acquired platform and expected cross-selling opportunities.,yes,strong,low,revenue_contribution
+G026,The acquisition adds patented imaging technology that will be integrated into the company's analytics platform.,yes,strong,medium,technology_patent
+G027,"Management expects the patented automation tools to improve product capabilities, but no financial targets were disclosed.",yes,strong,medium,technology_patent
+G028,The target brings proprietary software and a portfolio of patents that support the buyer's existing platform.,yes,strong,medium,technology_patent
+G029,Executives described the acquired technology as transformational without identifying measurable commercial impact.,yes,weak,high,technology_patent
+G030,The company said the transaction adds technology capabilities that may support future innovation across product lines.,yes,weak,medium,technology_patent
+G031,The filing describes preliminary purchase accounting adjustments related to goodwill and intangible assets.,no,none,low,accounting_only
+G032,"Management disclosed the accounting treatment for acquired inventory, goodwill, and deferred tax balances.",no,none,low,accounting_only
+G033,The company reported the allocation of purchase price to identifiable intangible assets and goodwill.,no,none,low,accounting_only
+G034,The note explains fair value estimates used in the preliminary acquisition accounting entries.,no,none,low,accounting_only
+G035,The disclosure summarizes the recognition of goodwill and customer relationship intangibles from the transaction.,no,none,low,accounting_only
+G036,"The aggregate purchase price was $420 million, subject to working capital and net debt adjustments.",no,none,low,purchase_price_only
+G037,The company paid $275 million in cash at closing for the acquired business.,no,none,low,purchase_price_only
+G038,The acquisition price included $190 million upfront and a contingent payment tied to post-close milestones.,no,none,low,purchase_price_only
+G039,"The transaction consideration was approximately $510 million, funded through cash on hand and borrowings.",no,none,low,purchase_price_only
+G040,The buyer agreed to a purchase price of $330 million for the target's equity interests.,no,none,low,purchase_price_only
+G041,"Management expects the combination to create benefits, but integration costs may be material in the first year.",yes,weak,high,integration_risk
+G042,"The company believes the deal will support growth, although executives noted execution risk and restructuring charges.",yes,weak,high,integration_risk
+G043,The filing states that synergy realization depends on successful integration and may be offset by transition costs.,yes,weak,high,integration_risk
+G044,Management expects operational benefits but warned that systems integration could delay planned improvements.,yes,weak,high,integration_risk
+G045,"Executives said the transaction could create value, while acknowledging integration risks and duplicated costs.",yes,weak,high,integration_risk
+G046,"The transaction is expected to be accretive, although management did not provide timing assumptions.",yes,weak,high,accretive
+G047,Executives expect the acquisition to be accretive to earnings within 24 months.,yes,strong,low,accretive
+G048,"The buyer said the deal should be modestly accretive over time, but no pro forma metrics were disclosed.",yes,weak,medium,accretive
+G049,Management expects the transaction to be accretive and cited pro forma margin expansion within 18 months.,yes,strong,low,accretive
+G050,The company described the acquisition as accretive without explaining the expected realization period.,yes,weak,high,accretive
+G051,The acquisition is expected to enhance shareholder value and create strategic benefits for the combined company.,yes,weak,high,shareholder_value
+G052,"Management believes the transaction will drive long-term value creation for shareholders, although it provided no measurable targets.",yes,weak,high,shareholder_value
+G053,Executives said the combination should improve shareholder value through better positioning in core markets.,yes,weak,high,shareholder_value
+G054,The buyer expects the deal to create value for shareholders over time but did not quantify expected benefits.,yes,weak,high,shareholder_value
+G055,The company described the acquisition as a compelling value creation opportunity for shareholders.,yes,weak,high,shareholder_value
+G056,Management described the transaction as a highly complementary strategic combination for future growth.,yes,weak,high,vague_strategic
+G057,Executives said the deal fits the company's strategy and offers compelling long-term opportunities.,yes,weak,high,vague_strategic
+G058,"The filing states that the combination strengthens the business strategically, without describing specific operating benefits.",yes,weak,high,vague_strategic
+G059,The company said the acquisition broadens its strategic platform and should support future opportunity creation.,yes,weak,high,vague_strategic
+G060,"Management expects strategic benefits from the combination, but the disclosure remains high level.",yes,weak,high,vague_strategic

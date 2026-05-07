@@ -1,0 +1,21 @@
+case_id,paragraph,has_optimistic_claim,expected_evidence_level,expected_risk
+T001,"We expect the acquisition to accelerate growth, create significant synergies, and enhance shareholder value.",yes,weak,high
+T002,"The transaction is expected to generate approximately $50 million in annual cost savings within 24 months through supply chain integration.",yes,strong,low
+T003,"The company completed the acquisition on March 1. The purchase price was paid in cash.",no,none,low
+T004,"Management believes the acquisition will strengthen our market position and unlock new opportunities across multiple regions.",yes,weak,high
+T005,"The acquisition will expand our customer base in the Northeast region and add three established distribution channels.",yes,strong,medium
+T006,"We believe this transaction will be transformational and create long-term value for all stakeholders.",yes,weak,high
+T007,"The acquired business contributed $120 million of revenue in the prior fiscal year and is expected to expand our enterprise software segment.",yes,strong,low
+T008,"The company expects operational efficiency improvements but has not yet finalized an integration plan.",yes,weak,high
+T009,"The disclosure describes accounting treatment of goodwill and intangible assets related to the acquisition.",no,none,low
+T010,"The deal is expected to improve EBITDA margins by combining manufacturing facilities over the next 18 months.",yes,strong,low
+T011,"Management expects strong growth after the acquisition but does not provide revenue targets or market assumptions.",yes,weak,high
+T012,"The acquisition adds patented AI technology that will be integrated into the company's existing analytics platform.",yes,strong,medium
+T013,"The purchase price for the target was $480 million, subject to customary working capital adjustments.",no,none,low
+T014,"Management said the combination should create meaningful opportunities across the combined platform over time.",yes,weak,high
+T015,"The company plans to consolidate two facilities and integrate procurement teams to improve operational efficiency.",yes,strong,medium
+T016,"The transaction expands the company into the hospital software market, although no revenue targets were provided.",yes,weak,medium
+T017,"The filing discusses goodwill, intangible assets, and preliminary purchase accounting estimates related to the acquisition.",no,none,low
+T018,"Management expects integration costs in the first year, but also believes the deal will deliver $30 million of annual savings within 18 months.",yes,strong,medium
+T019,"The acquisition brings patented automation technology and a customer base in three adjacent regions, but management did not quantify financial benefits.",yes,strong,medium
+T020,"The transaction is expected to be accretive, although the company did not provide a realization timeline or supporting assumptions.",yes,weak,high

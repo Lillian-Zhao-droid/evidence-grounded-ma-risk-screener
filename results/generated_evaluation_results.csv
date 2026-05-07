@@ -1,0 +1,723 @@
+case_id,dataset_type,paragraph,expected_claim,predicted_claim,claim_correct,expected_baseline,predicted_baseline,baseline_correct,expected_evidence,predicted_evidence,evidence_correct,expected_risk,predicted_risk,risk_correct,proposed_system_risk_correct,explanation
+G001,generic_synergy,Management expects the transaction to unlock value and create meaningful synergies across the combined business.,yes,yes,1,optimistic,optimistic,1,weak,weak,1,high,high,1,1,"Screening conclusion:
+This paragraph is high risk because it makes an optimistic commitment with limited or conflicting support.
+
+Why flagged:
+- The paragraph includes optimistic language about optimistic acquisition benefits.
+- Retrieved evidence suggests the claim may understate execution or integration risk.
+
+Evidence considered:
+- Optimistic claims are less reliable when they rely only on generic language such as 'create value', 'drive growth', or 'unlock opportunities'.
+- Synergy claims may be contradicted when integration costs are large but not reflected in management's optimistic discussion.
+
+Suggested analyst follow-up:
+Review whether management addresses integration risks, contradictory assumptions, or offsetting costs elsewhere in the filing."
+G002,generic_synergy,The strategic combination is expected to strengthen positioning and support long-term growth opportunities.,yes,yes,1,optimistic,optimistic,1,weak,weak,1,high,low,0,0,"Screening conclusion:
+This paragraph is low risk because the claim is supported by more concrete evidence and measurable context.
+
+Why flagged:
+- The paragraph includes optimistic language about optimistic acquisition benefits.
+- It provides limited measurable support relative to the strength of the commitment.
+
+Evidence considered:
+- Optimistic claims are less reliable when they rely only on generic language such as 'create value', 'drive growth', or 'unlock opportunities'.
+- Claims about revenue growth are weak when the company does not provide expected contribution, segment impact, or pro forma assumptions.
+
+Suggested analyst follow-up:
+Review whether management provides measurable assumptions, integration plans, or post-merger performance indicators elsewhere in the filing."
+G003,generic_synergy,The acquisition should enhance shareholder value through broad strategic benefits and scale advantages.,yes,yes,1,optimistic,optimistic,1,weak,weak,1,high,high,1,1,"Screening conclusion:
+This paragraph is high risk because it makes an optimistic commitment with limited or conflicting support.
+
+Why flagged:
+- The paragraph includes optimistic language about optimistic acquisition benefits.
+- It provides limited measurable support relative to the strength of the commitment.
+
+Evidence considered:
+- Broad synergy claims without quantified cost savings or timelines are often considered weak evidence in M&A disclosures.
+- When a disclosure mentions both expected benefits and integration challenges, the claim may be more balanced and less promotional.
+
+Suggested analyst follow-up:
+Review whether management provides measurable assumptions, integration plans, or post-merger performance indicators elsewhere in the filing."
+G004,generic_synergy,"Executives believe the deal will create a platform for growth, although no supporting metrics were disclosed.",yes,yes,1,optimistic,optimistic,1,weak,weak,1,high,high,1,1,"Screening conclusion:
+This paragraph is high risk because it makes an optimistic commitment with limited or conflicting support.
+
+Why flagged:
+- The paragraph includes optimistic language about optimistic acquisition benefits.
+- It provides limited measurable support relative to the strength of the commitment.
+
+Evidence considered:
+- Optimistic claims are less reliable when they rely only on generic language such as 'create value', 'drive growth', or 'unlock opportunities'.
+- Acquisition announcements that include specific cost-saving targets, integration timelines, and measurable operating metrics provide stronger support for synergy claims.
+
+Suggested analyst follow-up:
+Review whether management provides measurable assumptions, integration plans, or post-merger performance indicators elsewhere in the filing."
+G005,generic_synergy,The company expects significant benefits from the combination but did not provide measurable assumptions.,yes,yes,1,optimistic,not optimistic,0,weak,none,0,high,low,0,0,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G006,cost_savings,The transaction is expected to deliver $35 million of annual cost savings within 18 months through procurement integration.,yes,yes,1,optimistic,optimistic,1,strong,strong,1,low,low,1,1,"Screening conclusion:
+This paragraph is low risk because the claim is supported by more concrete evidence and measurable context.
+
+Why flagged:
+- The paragraph includes optimistic language about cost savings.
+- It includes concrete support that reduces screening risk but still merits validation.
+
+Evidence considered:
+- Cost synergy claims are more credible when management provides estimated savings and a timeline such as 12 to 24 months.
+- Broad synergy claims without quantified cost savings or timelines are often considered weak evidence in M&A disclosures.
+
+Suggested analyst follow-up:
+Confirm that the cited metrics, timelines, and operational assumptions are supported consistently across the filing."
+G007,cost_savings,Management expects approximately $60 million in savings within 24 months from supply chain consolidation.,yes,yes,1,optimistic,not optimistic,0,strong,none,0,low,low,1,1,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G008,cost_savings,The deal is projected to generate $20 million in annual savings within 12 months through facility consolidation.,yes,yes,1,optimistic,not optimistic,0,strong,none,0,low,low,1,1,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G009,cost_savings,The company expects $45 million of cost synergies over 24 months supported by shared services integration.,yes,yes,1,optimistic,optimistic,1,strong,strong,1,low,low,1,1,"Screening conclusion:
+This paragraph is low risk because the claim is supported by more concrete evidence and measurable context.
+
+Why flagged:
+- The paragraph includes optimistic language about optimistic acquisition benefits.
+- It includes concrete support that reduces screening risk but still merits validation.
+
+Evidence considered:
+- Cost synergy claims are more credible when management provides estimated savings and a timeline such as 12 to 24 months.
+- If an acquisition expands a company into a clearly identified adjacent market with stated customer demand, the growth claim is more supported.
+
+Suggested analyst follow-up:
+Confirm that the cited metrics, timelines, and operational assumptions are supported consistently across the filing."
+G010,cost_savings,Executives forecast annual savings of $28 million within 18 months from combining distribution networks.,yes,no,0,optimistic,not optimistic,0,strong,none,0,low,low,1,1,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G011,market_expansion,The acquisition is expected to expand the company into new healthcare regions in the Midwest and Southeast.,yes,yes,1,optimistic,not optimistic,0,strong,none,0,medium,low,0,0,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G012,market_expansion,"Management believes the transaction opens growth opportunities in adjacent markets, although no regional plan was provided.",yes,yes,1,optimistic,optimistic,1,weak,strong,0,high,medium,0,0,"Screening conclusion:
+This paragraph is medium risk because it includes an optimistic claim with some support but still leaves validation gaps.
+
+Why flagged:
+- The paragraph includes optimistic language about market expansion.
+- It includes concrete support that reduces screening risk but still merits validation.
+
+Evidence considered:
+- Claims about accelerating growth are weakly supported when no revenue target, customer expansion plan, or market share metric is provided.
+- If an acquisition expands a company into a clearly identified adjacent market with stated customer demand, the growth claim is more supported.
+
+Suggested analyst follow-up:
+Confirm that the cited metrics, timelines, and operational assumptions are supported consistently across the filing."
+G013,market_expansion,The combination adds distribution channels in three western regions and broadens the customer base.,yes,yes,1,optimistic,not optimistic,0,strong,strong,1,medium,medium,1,1,"Screening conclusion:
+This paragraph is medium risk because it includes an optimistic claim with some support but still leaves validation gaps.
+
+Why flagged:
+- The paragraph includes optimistic language about customer expansion.
+- It includes concrete support that reduces screening risk but still merits validation.
+
+Evidence considered:
+- Market expansion claims are stronger when the disclosure identifies new regions, customer groups, or distribution channels.
+- Management claims about enhancing market position may be risky if the disclosure does not explain product overlap, geographic expansion, or customer base expansion.
+
+Suggested analyst follow-up:
+Confirm that the cited metrics, timelines, and operational assumptions are supported consistently across the filing."
+G014,market_expansion,"The deal should support market expansion over time, but management did not identify specific customer groups.",yes,no,0,optimistic,not optimistic,0,weak,none,0,high,low,0,0,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G015,market_expansion,The target adds a presence in two European regions and extends the buyer's sales network.,yes,yes,1,optimistic,not optimistic,0,strong,none,0,medium,low,0,0,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G016,operational_efficiency,Management plans to consolidate two manufacturing facilities and integrate procurement teams to improve operational efficiency.,yes,yes,1,optimistic,optimistic,1,strong,weak,0,medium,high,0,0,"Screening conclusion:
+This paragraph is high risk because it makes an optimistic commitment with limited or conflicting support.
+
+Why flagged:
+- The paragraph includes optimistic language about optimistic acquisition benefits.
+- Retrieved evidence suggests the claim may understate execution or integration risk.
+
+Evidence considered:
+- Statements about improving operational efficiency are stronger when supported by concrete actions such as facility consolidation, supply chain integration, or headcount optimization plans.
+- A claim is more grounded when it connects the acquisition target's assets to specific operational improvements.
+
+Suggested analyst follow-up:
+Review whether management addresses integration risks, contradictory assumptions, or offsetting costs elsewhere in the filing."
+G017,operational_efficiency,The company expects operational improvements from the acquisition but has not finalized the integration plan.,yes,yes,1,optimistic,optimistic,1,weak,strong,0,high,medium,0,0,"Screening conclusion:
+This paragraph is medium risk because it includes an optimistic claim with some support but still leaves validation gaps.
+
+Why flagged:
+- The paragraph includes optimistic language about optimistic acquisition benefits.
+- It includes concrete support that reduces screening risk but still merits validation.
+
+Evidence considered:
+- A claim is more grounded when it connects the acquisition target's assets to specific operational improvements.
+- If an acquisition expands a company into a clearly identified adjacent market with stated customer demand, the growth claim is more supported.
+
+Suggested analyst follow-up:
+Confirm that the cited metrics, timelines, and operational assumptions are supported consistently across the filing."
+G018,operational_efficiency,Executives anticipate efficiency gains from aligning warehouse operations and combining support functions.,yes,no,0,optimistic,not optimistic,0,strong,none,0,medium,low,0,0,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G019,operational_efficiency,"The filing states that the acquisition should improve operations, although no implementation steps were described.",yes,no,0,optimistic,not optimistic,0,weak,none,0,high,low,0,0,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G020,operational_efficiency,The buyer expects better operating margins by merging logistics processes over the next 18 months.,yes,yes,1,optimistic,not optimistic,0,strong,strong,1,low,low,1,1,"Screening conclusion:
+This paragraph is low risk because the claim is supported by more concrete evidence and measurable context.
+
+Why flagged:
+- The paragraph includes optimistic language about margin improvement.
+- It includes concrete support that reduces screening risk but still merits validation.
+
+Evidence considered:
+- Cost synergy claims are more credible when management provides estimated savings and a timeline such as 12 to 24 months.
+- Acquisition announcements that include specific cost-saving targets, integration timelines, and measurable operating metrics provide stronger support for synergy claims.
+
+Suggested analyst follow-up:
+Confirm that the cited metrics, timelines, and operational assumptions are supported consistently across the filing."
+G021,revenue_contribution,The acquired business contributed $140 million of revenue last year and is expected to expand the enterprise software segment.,yes,yes,1,optimistic,not optimistic,0,strong,strong,1,low,low,1,1,"Screening conclusion:
+This paragraph is low risk because the claim is supported by more concrete evidence and measurable context.
+
+Why flagged:
+- The paragraph includes optimistic language about revenue growth.
+- It includes concrete support that reduces screening risk but still merits validation.
+
+Evidence considered:
+- Claims about revenue growth are weak when the company does not provide expected contribution, segment impact, or pro forma assumptions.
+- When a disclosure mentions both expected benefits and integration challenges, the claim may be more balanced and less promotional.
+
+Suggested analyst follow-up:
+Confirm that the cited metrics, timelines, and operational assumptions are supported consistently across the filing."
+G022,revenue_contribution,Management said the target adds $85 million in annual revenue and supports expansion in the diagnostics segment.,yes,yes,1,optimistic,not optimistic,0,strong,strong,1,low,low,1,1,"Screening conclusion:
+This paragraph is low risk because the claim is supported by more concrete evidence and measurable context.
+
+Why flagged:
+- The paragraph includes optimistic language about revenue growth.
+- It includes concrete support that reduces screening risk but still merits validation.
+
+Evidence considered:
+- Claims about accelerating growth are weakly supported when no revenue target, customer expansion plan, or market share metric is provided.
+- Claims about revenue growth are weak when the company does not provide expected contribution, segment impact, or pro forma assumptions.
+
+Suggested analyst follow-up:
+Confirm that the cited metrics, timelines, and operational assumptions are supported consistently across the filing."
+G023,revenue_contribution,The company expects the target's $110 million revenue base to strengthen its industrial automation segment.,yes,yes,1,optimistic,not optimistic,0,strong,strong,1,low,low,1,1,"Screening conclusion:
+This paragraph is low risk because the claim is supported by more concrete evidence and measurable context.
+
+Why flagged:
+- The paragraph includes optimistic language about revenue growth.
+- It includes concrete support that reduces screening risk but still merits validation.
+
+Evidence considered:
+- Claims about revenue growth are weak when the company does not provide expected contribution, segment impact, or pro forma assumptions.
+- Claims about accelerating growth are weakly supported when no revenue target, customer expansion plan, or market share metric is provided.
+
+Suggested analyst follow-up:
+Confirm that the cited metrics, timelines, and operational assumptions are supported consistently across the filing."
+G024,revenue_contribution,The target contributed $95 million in revenue and gives the acquirer a larger customer base in specialty retail.,yes,no,0,optimistic,not optimistic,0,strong,none,0,low,low,1,1,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G025,revenue_contribution,Executives highlighted $70 million of revenue contribution from the acquired platform and expected cross-selling opportunities.,yes,yes,1,optimistic,optimistic,1,strong,strong,1,low,low,1,1,"Screening conclusion:
+This paragraph is low risk because the claim is supported by more concrete evidence and measurable context.
+
+Why flagged:
+- The paragraph includes optimistic language about revenue growth, cross-selling.
+- It includes concrete support that reduces screening risk but still merits validation.
+
+Evidence considered:
+- Claims about revenue growth are weak when the company does not provide expected contribution, segment impact, or pro forma assumptions.
+- Optimistic claims are less reliable when they rely only on generic language such as 'create value', 'drive growth', or 'unlock opportunities'.
+
+Suggested analyst follow-up:
+Confirm that the cited metrics, timelines, and operational assumptions are supported consistently across the filing."
+G026,technology_patent,The acquisition adds patented imaging technology that will be integrated into the company's analytics platform.,yes,yes,1,optimistic,not optimistic,0,strong,strong,1,medium,medium,1,1,"Screening conclusion:
+This paragraph is medium risk because it includes an optimistic claim with some support but still leaves validation gaps.
+
+Why flagged:
+- The paragraph includes optimistic language about technology capabilities.
+- It includes concrete support that reduces screening risk but still merits validation.
+
+Evidence considered:
+- Statements that an acquisition will strengthen competitive position are weak if they lack evidence about competitors, market share, or technology advantage.
+- If an acquisition expands a company into a clearly identified adjacent market with stated customer demand, the growth claim is more supported.
+
+Suggested analyst follow-up:
+Confirm that the cited metrics, timelines, and operational assumptions are supported consistently across the filing."
+G027,technology_patent,"Management expects the patented automation tools to improve product capabilities, but no financial targets were disclosed.",yes,yes,1,optimistic,not optimistic,0,strong,strong,1,medium,medium,1,1,"Screening conclusion:
+This paragraph is medium risk because it includes an optimistic claim with some support but still leaves validation gaps.
+
+Why flagged:
+- The paragraph includes optimistic language about optimistic acquisition benefits.
+- It includes concrete support that reduces screening risk but still merits validation.
+
+Evidence considered:
+- Claims about innovation benefits are weak when the disclosure does not identify specific technologies, patents, or product capabilities.
+- Management claims about enhancing market position may be risky if the disclosure does not explain product overlap, geographic expansion, or customer base expansion.
+
+Suggested analyst follow-up:
+Confirm that the cited metrics, timelines, and operational assumptions are supported consistently across the filing."
+G028,technology_patent,The target brings proprietary software and a portfolio of patents that support the buyer's existing platform.,yes,no,0,optimistic,not optimistic,0,strong,none,0,medium,low,0,0,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G029,technology_patent,Executives described the acquired technology as transformational without identifying measurable commercial impact.,yes,yes,1,optimistic,optimistic,1,weak,strong,0,high,medium,0,0,"Screening conclusion:
+This paragraph is medium risk because it includes an optimistic claim with some support but still leaves validation gaps.
+
+Why flagged:
+- The paragraph includes optimistic language about technology capabilities.
+- It includes concrete support that reduces screening risk but still merits validation.
+
+Evidence considered:
+- Past M&A announcements using phrases like 'transformational opportunity' without measurable financial assumptions often required further analyst review.
+- Statements that an acquisition will strengthen competitive position are weak if they lack evidence about competitors, market share, or technology advantage.
+
+Suggested analyst follow-up:
+Confirm that the cited metrics, timelines, and operational assumptions are supported consistently across the filing."
+G030,technology_patent,The company said the transaction adds technology capabilities that may support future innovation across product lines.,yes,yes,1,optimistic,not optimistic,0,weak,strong,0,medium,medium,1,1,"Screening conclusion:
+This paragraph is medium risk because it includes an optimistic claim with some support but still leaves validation gaps.
+
+Why flagged:
+- The paragraph includes optimistic language about technology capabilities.
+- It includes concrete support that reduces screening risk but still merits validation.
+
+Evidence considered:
+- Claims about innovation benefits are weak when the disclosure does not identify specific technologies, patents, or product capabilities.
+- Statements that an acquisition will strengthen competitive position are weak if they lack evidence about competitors, market share, or technology advantage.
+
+Suggested analyst follow-up:
+Confirm that the cited metrics, timelines, and operational assumptions are supported consistently across the filing."
+G031,accounting_only,The filing describes preliminary purchase accounting adjustments related to goodwill and intangible assets.,no,no,1,not optimistic,not optimistic,1,none,none,1,low,low,1,1,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G032,accounting_only,"Management disclosed the accounting treatment for acquired inventory, goodwill, and deferred tax balances.",no,no,1,not optimistic,not optimistic,1,none,none,1,low,low,1,1,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G033,accounting_only,The company reported the allocation of purchase price to identifiable intangible assets and goodwill.,no,no,1,not optimistic,not optimistic,1,none,none,1,low,low,1,1,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G034,accounting_only,The note explains fair value estimates used in the preliminary acquisition accounting entries.,no,no,1,not optimistic,not optimistic,1,none,none,1,low,low,1,1,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G035,accounting_only,The disclosure summarizes the recognition of goodwill and customer relationship intangibles from the transaction.,no,no,1,not optimistic,not optimistic,1,none,none,1,low,low,1,1,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G036,purchase_price_only,"The aggregate purchase price was $420 million, subject to working capital and net debt adjustments.",no,no,1,not optimistic,not optimistic,1,none,none,1,low,low,1,1,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G037,purchase_price_only,The company paid $275 million in cash at closing for the acquired business.,no,no,1,not optimistic,not optimistic,1,none,none,1,low,low,1,1,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G038,purchase_price_only,The acquisition price included $190 million upfront and a contingent payment tied to post-close milestones.,no,no,1,not optimistic,not optimistic,1,none,none,1,low,low,1,1,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G039,purchase_price_only,"The transaction consideration was approximately $510 million, funded through cash on hand and borrowings.",no,no,1,not optimistic,not optimistic,1,none,none,1,low,low,1,1,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G040,purchase_price_only,The buyer agreed to a purchase price of $330 million for the target's equity interests.,no,no,1,not optimistic,not optimistic,1,none,none,1,low,low,1,1,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G041,integration_risk,"Management expects the combination to create benefits, but integration costs may be material in the first year.",yes,yes,1,optimistic,not optimistic,0,weak,none,0,high,low,0,0,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G042,integration_risk,"The company believes the deal will support growth, although executives noted execution risk and restructuring charges.",yes,yes,1,optimistic,optimistic,1,weak,weak,1,high,high,1,1,"Screening conclusion:
+This paragraph is high risk because it makes an optimistic commitment with limited or conflicting support.
+
+Why flagged:
+- The paragraph includes optimistic language about optimistic acquisition benefits.
+- Retrieved evidence suggests the claim may understate execution or integration risk.
+
+Evidence considered:
+- Acquisition claims are higher risk when they contain multiple optimistic outcomes but no measurable support.
+- Integration risk increases when management promises rapid synergy realization but does not discuss execution risks or integration costs.
+
+Suggested analyst follow-up:
+Review whether management addresses integration risks, contradictory assumptions, or offsetting costs elsewhere in the filing."
+G043,integration_risk,The filing states that synergy realization depends on successful integration and may be offset by transition costs.,yes,yes,1,optimistic,optimistic,1,weak,weak,1,high,high,1,1,"Screening conclusion:
+This paragraph is high risk because it makes an optimistic commitment with limited or conflicting support.
+
+Why flagged:
+- The paragraph includes optimistic language about optimistic acquisition benefits.
+- Retrieved evidence suggests the claim may understate execution or integration risk.
+
+Evidence considered:
+- Integration risk increases when management promises rapid synergy realization but does not discuss execution risks or integration costs.
+- Synergy claims may be contradicted when integration costs are large but not reflected in management's optimistic discussion.
+
+Suggested analyst follow-up:
+Review whether management addresses integration risks, contradictory assumptions, or offsetting costs elsewhere in the filing."
+G044,integration_risk,Management expects operational benefits but warned that systems integration could delay planned improvements.,yes,yes,1,optimistic,not optimistic,0,weak,weak,1,high,high,1,1,"Screening conclusion:
+This paragraph is high risk because it makes an optimistic commitment with limited or conflicting support.
+
+Why flagged:
+- The paragraph includes optimistic language about optimistic acquisition benefits.
+- Retrieved evidence suggests the claim may understate execution or integration risk.
+
+Evidence considered:
+- A claim is more grounded when it connects the acquisition target's assets to specific operational improvements.
+- When a disclosure mentions both expected benefits and integration challenges, the claim may be more balanced and less promotional.
+
+Suggested analyst follow-up:
+Review whether management addresses integration risks, contradictory assumptions, or offsetting costs elsewhere in the filing."
+G045,integration_risk,"Executives said the transaction could create value, while acknowledging integration risks and duplicated costs.",yes,yes,1,optimistic,optimistic,1,weak,none,0,high,low,0,0,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G046,accretive,"The transaction is expected to be accretive, although management did not provide timing assumptions.",yes,yes,1,optimistic,optimistic,1,weak,weak,1,high,high,1,1,"Screening conclusion:
+This paragraph is high risk because it makes an optimistic commitment with limited or conflicting support.
+
+Why flagged:
+- The paragraph includes optimistic language about optimistic acquisition benefits.
+- It provides limited measurable support relative to the strength of the commitment.
+
+Evidence considered:
+- Claims about revenue growth are weak when the company does not provide expected contribution, segment impact, or pro forma assumptions.
+- Disclosure paragraphs with expected EBITDA improvement, stated synergy dollar amounts, and a realization period usually provide stronger evidence.
+
+Suggested analyst follow-up:
+Review whether management provides measurable assumptions, integration plans, or post-merger performance indicators elsewhere in the filing."
+G047,accretive,Executives expect the acquisition to be accretive to earnings within 24 months.,yes,yes,1,optimistic,optimistic,1,strong,strong,1,low,low,1,1,"Screening conclusion:
+This paragraph is low risk because the claim is supported by more concrete evidence and measurable context.
+
+Why flagged:
+- The paragraph includes optimistic language about optimistic acquisition benefits.
+- It includes concrete support that reduces screening risk but still merits validation.
+
+Evidence considered:
+- Cost synergy claims are more credible when management provides estimated savings and a timeline such as 12 to 24 months.
+- A claim is more grounded when it connects the acquisition target's assets to specific operational improvements.
+
+Suggested analyst follow-up:
+Confirm that the cited metrics, timelines, and operational assumptions are supported consistently across the filing."
+G048,accretive,"The buyer said the deal should be modestly accretive over time, but no pro forma metrics were disclosed.",yes,yes,1,optimistic,optimistic,1,weak,strong,0,medium,low,0,0,"Screening conclusion:
+This paragraph is low risk because the claim is supported by more concrete evidence and measurable context.
+
+Why flagged:
+- The paragraph includes optimistic language about optimistic acquisition benefits.
+- It includes concrete support that reduces screening risk but still merits validation.
+
+Evidence considered:
+- Claims about revenue growth are weak when the company does not provide expected contribution, segment impact, or pro forma assumptions.
+- Acquisition announcements that include specific cost-saving targets, integration timelines, and measurable operating metrics provide stronger support for synergy claims.
+
+Suggested analyst follow-up:
+Confirm that the cited metrics, timelines, and operational assumptions are supported consistently across the filing."
+G049,accretive,Management expects the transaction to be accretive and cited pro forma margin expansion within 18 months.,yes,yes,1,optimistic,optimistic,1,strong,strong,1,low,low,1,1,"Screening conclusion:
+This paragraph is low risk because the claim is supported by more concrete evidence and measurable context.
+
+Why flagged:
+- The paragraph includes optimistic language about margin improvement.
+- It includes concrete support that reduces screening risk but still merits validation.
+
+Evidence considered:
+- Claims about revenue growth are weak when the company does not provide expected contribution, segment impact, or pro forma assumptions.
+- Management claims about enhancing market position may be risky if the disclosure does not explain product overlap, geographic expansion, or customer base expansion.
+
+Suggested analyst follow-up:
+Confirm that the cited metrics, timelines, and operational assumptions are supported consistently across the filing."
+G050,accretive,The company described the acquisition as accretive without explaining the expected realization period.,yes,yes,1,optimistic,optimistic,1,weak,weak,1,high,high,1,1,"Screening conclusion:
+This paragraph is high risk because it makes an optimistic commitment with limited or conflicting support.
+
+Why flagged:
+- The paragraph includes optimistic language about optimistic acquisition benefits.
+- It provides limited measurable support relative to the strength of the commitment.
+
+Evidence considered:
+- Disclosure paragraphs with expected EBITDA improvement, stated synergy dollar amounts, and a realization period usually provide stronger evidence.
+- Claims about revenue growth are weak when the company does not provide expected contribution, segment impact, or pro forma assumptions.
+
+Suggested analyst follow-up:
+Review whether management provides measurable assumptions, integration plans, or post-merger performance indicators elsewhere in the filing."
+G051,shareholder_value,The acquisition is expected to enhance shareholder value and create strategic benefits for the combined company.,yes,yes,1,optimistic,optimistic,1,weak,weak,1,high,high,1,1,"Screening conclusion:
+This paragraph is high risk because it makes an optimistic commitment with limited or conflicting support.
+
+Why flagged:
+- The paragraph includes optimistic language about optimistic acquisition benefits.
+- It provides limited measurable support relative to the strength of the commitment.
+
+Evidence considered:
+- Optimistic claims are less reliable when they rely only on generic language such as 'create value', 'drive growth', or 'unlock opportunities'.
+- When a disclosure mentions both expected benefits and integration challenges, the claim may be more balanced and less promotional.
+
+Suggested analyst follow-up:
+Review whether management provides measurable assumptions, integration plans, or post-merger performance indicators elsewhere in the filing."
+G052,shareholder_value,"Management believes the transaction will drive long-term value creation for shareholders, although it provided no measurable targets.",yes,yes,1,optimistic,optimistic,1,weak,none,0,high,low,0,0,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G053,shareholder_value,Executives said the combination should improve shareholder value through better positioning in core markets.,yes,yes,1,optimistic,optimistic,1,weak,weak,1,high,high,1,1,"Screening conclusion:
+This paragraph is high risk because it makes an optimistic commitment with limited or conflicting support.
+
+Why flagged:
+- The paragraph includes optimistic language about market expansion.
+- It provides limited measurable support relative to the strength of the commitment.
+
+Evidence considered:
+- Optimistic claims are less reliable when they rely only on generic language such as 'create value', 'drive growth', or 'unlock opportunities'.
+- Broad synergy claims without quantified cost savings or timelines are often considered weak evidence in M&A disclosures.
+
+Suggested analyst follow-up:
+Review whether management provides measurable assumptions, integration plans, or post-merger performance indicators elsewhere in the filing."
+G054,shareholder_value,The buyer expects the deal to create value for shareholders over time but did not quantify expected benefits.,yes,yes,1,optimistic,optimistic,1,weak,none,0,high,low,0,0,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G055,shareholder_value,The company described the acquisition as a compelling value creation opportunity for shareholders.,yes,yes,1,optimistic,optimistic,1,weak,none,0,high,low,0,0,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G056,vague_strategic,Management described the transaction as a highly complementary strategic combination for future growth.,yes,yes,1,optimistic,optimistic,1,weak,weak,1,high,high,1,1,"Screening conclusion:
+This paragraph is high risk because it makes an optimistic commitment with limited or conflicting support.
+
+Why flagged:
+- The paragraph includes optimistic language about optimistic acquisition benefits.
+- Retrieved evidence suggests the claim may understate execution or integration risk.
+
+Evidence considered:
+- Synergy claims may be contradicted when integration costs are large but not reflected in management's optimistic discussion.
+- Cost synergy claims are more credible when management provides estimated savings and a timeline such as 12 to 24 months.
+
+Suggested analyst follow-up:
+Review whether management addresses integration risks, contradictory assumptions, or offsetting costs elsewhere in the filing."
+G057,vague_strategic,Executives said the deal fits the company's strategy and offers compelling long-term opportunities.,yes,no,0,optimistic,not optimistic,0,weak,none,0,high,low,0,0,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G058,vague_strategic,"The filing states that the combination strengthens the business strategically, without describing specific operating benefits.",yes,yes,1,optimistic,not optimistic,0,weak,none,0,high,low,0,0,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
+G059,vague_strategic,The company said the acquisition broadens its strategic platform and should support future opportunity creation.,yes,yes,1,optimistic,not optimistic,0,weak,weak,1,high,high,1,1,"Screening conclusion:
+This paragraph is high risk because it makes an optimistic commitment with limited or conflicting support.
+
+Why flagged:
+- The paragraph includes optimistic language about optimistic acquisition benefits.
+- It provides limited measurable support relative to the strength of the commitment.
+
+Evidence considered:
+- Acquisition claims are higher risk when they contain multiple optimistic outcomes but no measurable support.
+- If an acquisition expands a company into a clearly identified adjacent market with stated customer demand, the growth claim is more supported.
+
+Suggested analyst follow-up:
+Review whether management provides measurable assumptions, integration plans, or post-merger performance indicators elsewhere in the filing."
+G060,vague_strategic,"Management expects strategic benefits from the combination, but the disclosure remains high level.",yes,yes,1,optimistic,not optimistic,0,weak,none,0,high,low,0,0,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
+
+Why flagged:
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
+
+Evidence considered:
+- No optimistic claim was extracted for retrieval-based review.
+
+Suggested analyst follow-up:
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
