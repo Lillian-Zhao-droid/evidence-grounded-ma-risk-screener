@@ -209,15 +209,6 @@ The tool should be used to prioritize review, not replace professional judgment.
 
 This section is intended for final submission screenshots and optional demo media.
 
-### Screenshot Placeholders
-
-- Screenshot 1: Main screener interface
-- Screenshot 2: Ranked paragraph risk table
-- Screenshot 3: Paragraph detail with retrieved evidence
-- Optional screenshot files can be placed in a `screenshots/` folder before submission
-
-If available, a short clip or GIF showing upload -> screening -> paragraph review can also be added here.
-
 ### Sample Input
 
 ```text
@@ -239,6 +230,24 @@ The transaction will be accounted for as a business combination under applicable
 - High-risk paragraphs flagged if claims lack concrete support
 - Retrieved evidence shown for each flagged paragraph
 - CSV results can be downloaded
+
+### Screenshot Placeholders
+
+- Screenshot 1: Main screener interface
+  ![Main Interface](<screenshots/main_interface(1).png>)
+  ![Main Interface](<screenshots/main_interface(2).png>)
+
+- Screenshot 2: Ranked paragraph risk table
+  ![Risk Table](screenshots/risk_table.png)
+
+- Screenshot 3: Paragraph detail with retrieved evidence
+  ![Paragraph Detail](screenshots/Paragraph_detail.png)
+  ![Retrived evidence](screenshots/Retrived_evidence.png)
+  ![Explanation](screenshots/Explanation.png)
+
+- Optional screenshot files can be placed in a `screenshots/` folder before submission
+
+If available, a short clip or GIF showing upload -> screening -> paragraph review can also be added here.
 
 ## 5. Setup and Usage Instructions
 
