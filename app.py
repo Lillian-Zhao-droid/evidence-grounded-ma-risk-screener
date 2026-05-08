@@ -4,7 +4,7 @@ import pandas as pd
 import streamlit as st
 from bs4 import BeautifulSoup
 
-from core import analyze_disclosure, clean_disclosure_text
+from core import analyze_disclosure, clean_disclosure_text, is_llm_enabled
 
 
 st.set_page_config(
@@ -229,12 +229,14 @@ if "uploaded_file_token" not in st.session_state:
 
 
 def render_screener_page():
+    llm_mode_label = "enabled" if is_llm_enabled() else "fallback rule-based mode"
     st.markdown(
-        """
+        f"""
         <div class="hero-card">
             <h1>Evidence-Grounded M&amp;A Disclosure Risk Screener</h1>
             <p>Upload or paste an M&amp;A disclosure to identify optimistic claims, retrieve related evidence, and rank paragraphs for review.</p>
             <p class="subnote">Prototype tool for first-pass screening. Not audit or investment advice.</p>
+            <p class="subnote">LLM mode: {llm_mode_label}</p>
         </div>
         """,
         unsafe_allow_html=True,

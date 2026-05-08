@@ -73,19 +73,17 @@ Evidence considered:
 
 Suggested analyst follow-up:
 Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
-T007,manual,The acquired business contributed $120 million of revenue in the prior fiscal year and is expected to expand our enterprise software segment.,yes,yes,1,optimistic,not optimistic,0,strong,strong,1,low,low,1,1,"Screening conclusion:
-This paragraph is low risk because the claim is supported by more concrete evidence and measurable context.
+T007,manual,The acquired business contributed $120 million of revenue in the prior fiscal year and is expected to expand our enterprise software segment.,yes,yes,1,optimistic,not optimistic,0,strong,none,0,low,low,1,1,"Screening conclusion:
+This paragraph appears low risk because no clear optimistic commitment was detected.
 
 Why flagged:
-- The paragraph includes optimistic language about revenue growth.
-- It includes concrete support that reduces screening risk but still merits validation.
+- The paragraph reads as descriptive or accounting-focused rather than promotional.
 
 Evidence considered:
-- Claims about revenue growth are weak when the company does not provide expected contribution, segment impact, or pro forma assumptions.
-- When a disclosure mentions both expected benefits and integration challenges, the claim may be more balanced and less promotional.
+- No optimistic claim was extracted for retrieval-based review.
 
 Suggested analyst follow-up:
-Confirm that the cited metrics, timelines, and operational assumptions are supported consistently across the filing."
+Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
 T008,manual,The company expects operational efficiency improvements but has not yet finalized an integration plan.,yes,yes,1,optimistic,not optimistic,0,weak,weak,1,high,high,1,1,"Screening conclusion:
 This paragraph is high risk because it makes an optimistic commitment with limited or conflicting support.
 

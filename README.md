@@ -1,183 +1,222 @@
 # Evidence-Grounded M&A Disclosure Risk Screener
 
-## Overview
-
-This project is a Streamlit-based GenAI workflow tool for screening M&A disclosure text at the paragraph level. It is designed as a first-pass review aid for disclosure analysis: the user can paste or upload M&A disclosure text, and the system will identify optimistic claims, retrieve related evidence cases, assign risk scores, rank paragraphs by review priority, and generate analyst-facing explanations.
-
-The project is intentionally narrow in scope. It does not attempt full sentiment analysis or general SEC filing summarization. Instead, it focuses on a specific business problem: optimistic M&A disclosure language that may sound persuasive but may lack concrete support.
+This project is a Streamlit-based GenAI screening tool for one narrow business use case: identifying optimistic M&A disclosure paragraphs that may require deeper manual review. The app helps a reviewer move from raw disclosure text to paragraph-level screening output with retrieved evidence, risk ranking, and analyst-facing explanation.
 
 ## 1. Context, User, and Problem
 
 ### Business Context
 
-M&A disclosures often include forward-looking language about:
+M&A disclosures often contain persuasive language about:
 
-- synergies
-- revenue growth
+- synergy realization
+- growth acceleration
 - market expansion
 - operational efficiency
-- margin improvement
 - shareholder value
+- strategic positioning
 
-These claims may be reasonable, but they may also be promotional, generic, or insufficiently supported by measurable evidence. In practice, reviewers often need to read long filings and decide which paragraphs deserve deeper scrutiny.
+These claims may be reasonable, but they may also be generic, weakly supported, or difficult to validate quickly when a user is reviewing a long filing.
 
-### Target User
+### Specific User
 
-This tool is designed for:
+The intended users are:
 
 - financial analysts
 - auditors
 - disclosure reviewers
 - accounting researchers
 
-### Problem
+### Workflow and Problem
 
-Users need a first-pass screening tool that can help them quickly find paragraphs containing optimistic M&A claims and distinguish between:
+These users often review M&A disclosure paragraphs and need to determine which parts of the filing deserve closer scrutiny. The problem is not simply “is the language positive?” The real workflow problem is:
 
-- claims with stronger concrete support
-- claims with weaker or more generic support
-- purely procedural or accounting language that should not be flagged
+1. identify optimistic M&A claims
+2. distinguish stronger support from weaker support
+3. rank the paragraphs that may need manual follow-up
 
-The goal is not to automate final judgment. The goal is to reduce review burden by surfacing paragraphs that may need manual follow-up.
+This matters because optimistic language about synergy, growth, and value creation may sound persuasive while still lacking concrete evidence, timelines, assumptions, or operational support.
 
 ## 2. Solution and Design
 
-### What the App Does
+### What Was Built
 
-The Streamlit app accepts:
+This project is a runnable Streamlit app, not just a notebook or loose script. The user can:
 
-- pasted M&A disclosure text
-- uploaded `.txt` files
-- uploaded `.html` SEC-style filings
+- paste disclosure text
+- upload `.txt` files
+- upload SEC-style `.html` filings
+- try a built-in example disclosure
 
-It then:
-
-1. cleans the input text
-2. splits the disclosure into paragraphs
-3. detects optimistic claims
-4. retrieves related evidence cases from the evidence library
-5. classifies the evidence relationship
-6. assigns a rule-based risk label and risk score
-7. ranks paragraphs by review priority
-8. generates an analyst-facing explanation
-
-### Supported Inputs
-
-- pasted disclosure text
-- `.txt` files
-- `.html` files
-
-### Current Input Limitations
-
-- full PDF support is not currently implemented
-- the prototype works best on M&A-related sections rather than entire long filings
+The app returns paragraph-level screening results, including flagged optimistic paragraphs, retrieved evidence, ranked risk output, and explanation text.
 
 ### Workflow
 
-The workflow is:
+The current workflow is:
 
-1. Disclosure input
-2. Text cleaning
-3. Paragraph splitting
-4. Optimistic claim extraction
-5. External evidence retrieval from `data/evidence_library.csv`
-6. Evidence relationship classification
-7. Rule-based risk scoring
-8. Explanation generation
-9. Paragraph-level ranked output
+`disclosure input -> Text cleaning -> paragraph splitting -> LLM claim extraction -> retrieval -> Evidence relationship classification -> risk scoring -> Analyst-facing explanation generation`
 
-### Why This Is Not Just ChatGPT
+More specifically:
 
-A prompt-only chatbot can comment on pasted text, but this tool uses a structured workflow. It adds:
+1. The user uploads or pastes an M&A-related disclosure section.
+2. The app cleans and splits the text into paragraphs.
+3. Each paragraph is screened for optimistic M&A claims.
+4. If a claim is detected, the system retrieves related evidence cases from a small external evidence library.
+5. The system evaluates whether the retrieved evidence supports, weakly supports, or potentially contradicts the claim.
+6. A transparent rule-based scoring layer assigns a low, medium, or high review-risk label.
+7. The app generates a concise analyst-facing explanation to help the reviewer prioritize manual follow-up.
+
+The final output is a ranked paragraph-level screening result rather than a single chatbot response.
+
+### Key GenAI Design Choices
+
+The system is intentionally hybrid rather than fully LLM-driven.
+
+- LLM for claim extraction and claim rewriting when `OPENAI_API_KEY` is available
+- LLM for analyst-facing explanation generation when `OPENAI_API_KEY` is available
+- retrieval from an evidence library to ground the output beyond the pasted paragraph
+- rule-based risk scoring for transparency and stable behavior
+- fallback mode if no API key is provided
+
+### LLM Usage
+
+The project does use the OpenAI API, but only in a modest and controlled way.
+
+- `extract_claim_llm(paragraph)` is used for optimistic claim extraction and rewriting
+- `generate_explanation_llm(...)` is used for concise analyst-facing explanations
+
+The system does not rely entirely on the LLM. Retrieval, paragraph ranking, and risk scoring are intentionally kept transparent and partially rule-based so the workflow remains explainable and stable.
+
+If an `OPENAI_API_KEY` is available:
+
+- the app uses the OpenAI API for claim extraction and explanation generation
+- the UI indicates that LLM mode is enabled
+
+If `no API key is available`:
+
+- the app automatically falls back to local rule-based extraction and template explanations
+- retrieval and evaluation still function
+- the app remains fully runnable for grading purposes
+
+### Why This Is Not Just a Prompt-Only Chatbot
+
+A prompt-only chatbot can summarize or comment on pasted disclosure text, but this project focuses on a structured review workflow rather than a single conversational response.
+
+The system adds:
 
 - paragraph-level screening
-- a keyword-only baseline for comparison
 - external evidence retrieval
-- evidence relationship classification
-- rule-based risk scoring
-- ranked paragraph output
-- analyst-facing explanations
+- baseline comparison
+- transparent risk scoring
+- ranked review output
+- evaluation on labeled test sets
 
-Most importantly, the retrieval step grounds the output in an evidence library rather than relying only on the pasted paragraph.
+The retrieval step is especially important because the output is grounded in an external evidence library rather than relying only on the pasted paragraph.
 
-### Baseline vs Proposed System
-
-| Component | Baseline Keyword Model | Proposed Evidence-Grounded Workflow |
-|---|---|---|
-| Claim detection | Detects optimistic keywords only | Extracts optimistic claims |
-| Evidence use | No external evidence | Retrieves top related evidence cases |
-| Paragraph ranking | No | Yes |
-| Risk scoring | No | Yes |
-| Explanation | No grounded explanation | Generates analyst-facing explanation |
+The project therefore functions more like a lightweight analyst workflow tool than a general-purpose chatbot.
 
 ## 3. Evaluation and Results
 
+### Baseline
+
+The baseline is a keyword-only optimistic detection model. It checks whether optimistic words appear in a paragraph, but it does not:
+
+- retrieve evidence
+- classify evidence relationships
+- rank risk
+- generate grounded explanations
+
+### Evaluation Sets
+
 The project uses two evaluation sets.
 
-### Manual Evaluation Set
+#### Manual Test Set
 
 - File: `data/test_cases.csv`
-- Purpose: carefully labeled benchmark examples
-- Role: checks paragraph-level behavior on hand-reviewed cases
-
-### Synthetic Robustness Set
-
-- File: `data/generated_test_cases.csv`
-- Purpose: larger generated set covering broader M&A disclosure patterns
-- Role: checks whether the workflow behaves consistently across more edge cases and realistic variants
-
-### Current Results
-
-#### Manual Evaluation Set
-
-| Metric | Result |
-|---|---:|
-| Claim detection accuracy | 0.95 |
-| Evidence level agreement | 0.90 |
-| Risk label accuracy | 0.80 |
-| Baseline optimistic detection accuracy | 0.60 |
-| Proposed system risk accuracy | 0.80 |
+- Purpose: small but carefully labeled paragraph-level evaluation set
 
 #### Synthetic Robustness Set
 
-| Metric | Result |
-|---|---:|
-| Claim detection accuracy | 0.88 |
-| Evidence level agreement | 0.78 |
-| Risk label accuracy | 0.83 |
-| Baseline optimistic detection accuracy | 0.58 |
-| Proposed system risk accuracy | 0.83 |
+- File: `data/generated_test_cases.csv`
+- Purpose: larger generated set covering broader M&A disclosure patterns
 
-### Interpretation
+### Current Results
 
-These results suggest that the proposed workflow outperforms the keyword-only baseline because it does more than detect optimistic words. It adds:
+The current repository results are:
 
-- claim extraction
-- retrieval-grounded evidence review
-- evidence relationship classification
-- structured risk scoring
+#### Manual Evaluation Set
 
-The evaluation is still prototype-scale, so these numbers should be interpreted as evidence of useful workflow behavior rather than production readiness.
+| Metric                                 | Result |
+| -------------------------------------- | -----: |
+| Claim detection accuracy               |   0.95 |
+| Evidence level agreement               |   0.80 |
+| Risk label accuracy                    |   0.75 |
+| Baseline optimistic detection accuracy |   0.60 |
+| Proposed system risk accuracy          |   0.75 |
 
-### Human Role
+#### Synthetic Robustness Set
 
-This tool is a first-pass screener. It does not replace:
+| Metric                                 | Result |
+| -------------------------------------- | -----: |
+| Claim detection accuracy               |   0.88 |
+| Evidence level agreement               |   0.57 |
+| Risk label accuracy                    |   0.63 |
+| Baseline optimistic detection accuracy |   0.58 |
+| Proposed system risk accuracy          |   0.63 |
 
-- analyst judgment
-- audit procedures
-- investment analysis
+### What Worked
 
-Users should manually review flagged high-risk paragraphs and verify claims in the original filing.
+Several aspects of the workflow worked consistently during testing:
+
+- Paragraph-level screening was effective for surfacing optimistic M&A language.
+- The retrieval step improved grounding compared with the keyword-only baseline.
+- The proposed workflow consistently outperformed the baseline in review-risk classification.
+- The ranked output helped prioritize which disclosure paragraphs deserved closer manual review.
+- The app remained usable even without an API key because fallback logic was implemented.
+
+The project worked best on:
+
+- M&A press releases
+- acquisition announcement sections
+- SEC 8-K M&A-related disclosure text
+- moderately clean copied filing text
+
+### What Failed / Limitations in Evaluation
+
+The project still has several limitations.
+
+- The evidence library is relatively small and synthetic.
+- Retrieval quality depends heavily on the coverage of the evidence cases.
+- Some strategic language is difficult to classify because it is mildly optimistic but not clearly promotional.
+- Full SEC filings often contain noisy formatting, legal exhibits, signatures, and accounting sections that reduce screening quality.
+- PDF parsing is not yet production-ready.
+- The evaluation sets are still relatively small compared with real production systems.
+
+The tool is therefore best viewed as a prototype workflow screener rather than a production assurance system.
+
+### Where Human Should Stay Involved
+
+This tool is a first-pass screener. Human reviewers should remain involved for:
+
+- verify whether claims are materially misleading
+- cross-check assumptions elsewhere in the filing
+- evaluate management credibility
+- review integration risks and operational feasibility
+- make final audit, investment, or disclosure judgments
+
+The tool should be used to prioritize review, not replace professional judgment.
 
 ## 4. Artifact Snapshot
 
-This section can be updated with screenshots before final submission.
+This section is intended for final submission screenshots and optional demo media.
 
 ### Screenshot Placeholders
 
 - Screenshot 1: Main screener interface
 - Screenshot 2: Ranked paragraph risk table
 - Screenshot 3: Paragraph detail with retrieved evidence
+- Optional screenshot files can be placed in a `screenshots/` folder before submission
+
+If available, a short clip or GIF showing upload -> screening -> paragraph review can also be added here.
 
 ### Sample Input
 
@@ -206,8 +245,8 @@ The transaction will be accounted for as a business combination under applicable
 ### Clone the Repository
 
 ```bash
-git clone <your-repo-url>
-cd evidence-grounded-ma-risk-tool
+git clone https://github.com/Lillian-Zhao-droid/evidence-grounded-ma-risk-screener.git
+cd evidence-grounded-ma-risk-screener
 ```
 
 ### Create and Activate a Virtual Environment
@@ -232,6 +271,20 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
+### Add the API Key
+
+Copy the example file:
+
+```bash
+cp .env.example .env
+```
+
+Then edit `.env` and add:
+
+```env
+OPENAI_API_KEY=your_api_key_here
+```
+
 ### Generate Synthetic Test Cases
 
 ```bash
@@ -250,38 +303,49 @@ python evaluation.py
 streamlit run app.py
 ```
 
-## Repository Structure
+### API Key / Fallback Behavior
 
-| Path | Purpose |
-|---|---|
-| `app.py` | Streamlit app interface |
-| `core.py` | Core screening logic, text cleaning, claim extraction, retrieval, risk scoring, explanation |
-| `evaluation.py` | Runs evaluation on manual and synthetic sets |
-| `generate_synthetic_tests.py` | Generates synthetic robustness evaluation data |
-| `requirements.txt` | Project dependencies |
-| `data/evidence_library.csv` | Evidence library used for retrieval |
-| `data/test_cases.csv` | Manual evaluation set |
-| `data/generated_test_cases.csv` | Synthetic robustness evaluation set |
-| `results/evaluation_results.csv` | Manual evaluation results |
-| `results/generated_evaluation_results.csv` | Synthetic robustness evaluation results |
+- If no API key is provided, the app runs in fallback rule-based mode.
+- With an API key, LLM mode enables improved claim extraction and explanation generation.
+- The app does not print or expose the API key.
 
-## Limitations
+## 6. Repository Structure
 
-- The evidence library is small.
-- The evidence cases are synthetic rather than drawn from a large real labeled corpus.
-- This is a prototype, not a production disclosure review platform.
-- It is not audit advice or investment advice.
-- The tool works best on M&A-related disclosure sections rather than entire long filings.
-- PDF support is limited and remains future work.
+| Path                                       | Purpose                                                                                                                   |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| `app.py`                                   | Streamlit app with Screener and Project Overview pages                                                                    |
+| `core.py`                                  | Core workflow logic: cleaning, splitting, claim extraction, retrieval, evidence classification, risk scoring, explanation |
+| `evaluation.py`                            | Evaluation runner for manual and synthetic sets                                                                           |
+| `generate_synthetic_tests.py`              | Generates the synthetic robustness evaluation set                                                                         |
+| `requirements.txt`                         | Python dependencies                                                                                                       |
+| `.env.example`                             | Example environment variable file for API key setup                                                                       |
+| `data/evidence_library.csv`                | Evidence library used for retrieval                                                                                       |
+| `data/test_cases.csv`                      | Manual evaluation set                                                                                                     |
+| `data/generated_test_cases.csv`            | Synthetic robustness evaluation set                                                                                       |
+| `results/evaluation_results.csv`           | Manual evaluation results                                                                                                 |
+| `results/generated_evaluation_results.csv` | Synthetic robustness evaluation results                                                                                   |
 
-## Future Improvements
+## 7. Limitations and Future Improvements
 
-- Build a larger SEC 8-K evidence library
-- Improve HTML and PDF parsing
-- Add LLM-based claim extraction
-- Expand expert-labeled evaluation data
-- Incorporate post-merger outcome data for stronger evidence grounding
+### Limitations
+
+- Small evidence library
+- Prototype only
+- Not audit or investment advice
+- Works best on M&A-related disclosure sections rather than entire long filings
+- HTML parsing is basic and PDF support is not yet production-ready
+- Evaluation is still limited by synthetic evidence and small manual labeling coverage
+
+### Future Improvements
+
+- larger SEC 8-K evidence library
+- better PDF and HTML parsing
+- stronger expert-labeled evaluation sets
+- broader evidence grounding from analyst reports or post-merger outcomes
+- improved LLM-assisted claim extraction and explanation quality
 
 ## Final Note
 
-This project is best understood as a workflow artifact rather than just a chatbot wrapper. Its value comes from structuring the task into paragraph screening, retrieval, risk scoring, and explanation so that users can review optimistic M&A claims more systematically.
+This project satisfies the course requirement of building a small GenAI app/tool for one narrow business workflow.
+
+The workflow focus is intentionally narrow: screening optimistic M&A disclosure claims that may require deeper review. The project is designed to demonstrate workflow design, evaluation, retrieval grounding, and human-AI collaboration rather than fully automated financial judgment.

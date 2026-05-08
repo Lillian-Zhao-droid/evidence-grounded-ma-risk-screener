@@ -4,11 +4,16 @@ from typing import Any
 import pandas as pd
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
+from dotenv import load_dotenv
 
 try:
     from openai import OpenAI
 except ImportError:
     OpenAI = None
+
+load_dotenv()
+
+LLM_MODEL = "gpt-4o-mini"
 
 
 # -----------------------------
@@ -494,6 +499,13 @@ def extract_claim_rule_based(paragraph):
     }
 
 
+def extract_claim(paragraph):
+    llm_result = extract_claim_llm(paragraph)
+    if llm_result is not None:
+        return llm_result
+    return extract_claim_rule_based(paragraph)
+
+
 # -----------------------------
 # 4. Embedding retrieval
 # -----------------------------
@@ -511,6 +523,106 @@ def get_openai_client():
         return None
 
     return OpenAI(api_key=api_key)
+
+
+def is_llm_enabled():
+    return get_openai_client() is not None
+
+
+def extract_claim_llm(paragraph, model=LLM_MODEL):
+    client = get_openai_client()
+    if client is None:
+        return None
+
+    prompt = (
+        "You are extracting optimistic M&A disclosure claims for analyst review. "
+        "Return a short claim summary only if the paragraph contains an optimistic or promotional M&A commitment. "
+        "Focus on growth, synergies, market expansion, operational efficiency, margins, capabilities, shareholder value, accretion, or cross-selling. "
+        "Ignore procedural, legal, delisting, accounting, tax, conversion-mechanics, or filing-administration language. "
+        "If no optimistic claim exists, return exactly: NONE. "
+        "If a claim exists, rewrite it as one concise sentence starting with 'Management expects ...'. "
+        "Keep it shorter and cleaner than the original paragraph."
+    )
+
+    try:
+        response = client.chat.completions.create(
+            model=model,
+            temperature=0,
+            messages=[
+                {"role": "system", "content": prompt},
+                {"role": "user", "content": paragraph},
+            ],
+        )
+        content = _clean_text(response.choices[0].message.content).strip()
+        if content.upper() == "NONE" or content == "":
+            return {
+                "has_optimistic_claim": "no",
+                "claim": "",
+                "retrieval_claim": "",
+            }
+
+        return {
+            "has_optimistic_claim": "yes",
+            "claim": content,
+            "retrieval_claim": paragraph,
+        }
+    except Exception:
+        return None
+
+
+def generate_explanation_llm(
+    paragraph,
+    claim,
+    retrieved_evidence,
+    relationship,
+    evidence_level,
+    risk_label,
+    model=LLM_MODEL,
+):
+    client = get_openai_client()
+    if client is None:
+        return None
+
+    evidence_lines = []
+    for _, row in retrieved_evidence.head(3).iterrows():
+        evidence_lines.append(
+            f"- ({_clean_text(row.get('case_id'))}, {_clean_text(row.get('expected_direction'))}) "
+            f"{_clean_text(row.get('evidence_text'))}"
+        )
+    if not evidence_lines:
+        evidence_lines.append("- No closely related external evidence was retrieved.")
+
+    prompt = (
+        "You are writing a concise analyst-facing screening explanation for optimistic M&A disclosure review. "
+        "Write in exactly four sections with these headers: "
+        "Screening conclusion:, Why flagged:, Evidence considered:, Suggested analyst follow-up:. "
+        "Be concise, specific, and professional. "
+        "Do not mention AI, models, or the prompt. "
+        "Do not invent facts beyond the paragraph and retrieved evidence."
+    )
+
+    user_content = (
+        f"Paragraph:\n{paragraph}\n\n"
+        f"Extracted claim:\n{claim}\n\n"
+        f"Relationship: {relationship}\n"
+        f"Evidence level: {evidence_level}\n"
+        f"Risk label: {risk_label}\n\n"
+        "Retrieved evidence:\n" + "\n".join(evidence_lines)
+    )
+
+    try:
+        response = client.chat.completions.create(
+            model=model,
+            temperature=0.2,
+            messages=[
+                {"role": "system", "content": prompt},
+                {"role": "user", "content": user_content},
+            ],
+        )
+        content = _clean_text(response.choices[0].message.content).strip()
+        return content if content else None
+    except Exception:
+        return None
 
 
 def get_embedding_openai(text, model="text-embedding-3-small"):
@@ -789,6 +901,17 @@ def generate_explanation(paragraph, claim, retrieved_df, relationship, evidence_
             "Confirm whether related sections elsewhere in the filing contain forward-looking deal claims."
         )
 
+    llm_explanation = generate_explanation_llm(
+        paragraph=paragraph,
+        claim=claim,
+        retrieved_evidence=retrieved_df,
+        relationship=relationship,
+        evidence_level=evidence_level,
+        risk_label=risk_result["risk_label"],
+    )
+    if llm_explanation is not None:
+        return llm_explanation
+
     evidence_snippets = []
     for _, row in retrieved_df.head(2).iterrows():
         evidence_snippets.append(f"- {_clean_text(row.get('evidence_text'))}")
@@ -863,7 +986,7 @@ def analyze_paragraph(paragraph, evidence_path="data/evidence_library.csv"):
 
     baseline = keyword_baseline(paragraph)
 
-    claim_result = extract_claim_rule_based(paragraph)
+    claim_result = extract_claim(paragraph)
     claim = claim_result["claim"]
     retrieval_claim = claim_result["retrieval_claim"]
 
