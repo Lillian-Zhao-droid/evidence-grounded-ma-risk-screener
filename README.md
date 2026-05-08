@@ -306,6 +306,8 @@ python generate_synthetic_tests.py
 python evaluation.py
 ```
 
+The script prints progress messages for the manual set and synthetic robustness set before showing final metrics.
+
 ### Run the App
 
 ```bash

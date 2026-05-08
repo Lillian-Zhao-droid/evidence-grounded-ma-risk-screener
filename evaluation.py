@@ -83,6 +83,7 @@ def print_summary(title, summary, output_path):
 def run_evaluation():
     manual_input = "data/test_cases.csv"
     manual_output = "results/evaluation_results.csv"
+    print("Running manual evaluation set...")
     manual_results = evaluate_dataset(manual_input, manual_output)
     manual_summary = summarize_results(manual_results)
     print_summary("Manual evaluation set", manual_summary, manual_output)
@@ -90,6 +91,7 @@ def run_evaluation():
     generated_input = Path("data/generated_test_cases.csv")
     if generated_input.exists():
         generated_output = "results/generated_evaluation_results.csv"
+        print("Running synthetic robustness set...")
         generated_results = evaluate_dataset(str(generated_input), generated_output)
         generated_summary = summarize_results(generated_results)
         print_summary("Synthetic robustness set", generated_summary, generated_output)
